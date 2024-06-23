@@ -1,0 +1,10 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+    <!-- I have added the app_name=polls to use namespaces in the event of multiple apps -->
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
